@@ -8,10 +8,14 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+
+
 public abstract class ObserverComponent extends JComponent implements IObserver {
     protected ControlRole controlRole;
     protected int width, height;
     protected BasicStroke stroke;
+
+    //Конструктор
 
     public ObserverComponent(int x, int y, int width, int height, ControlRole controlRole) {
         super();
@@ -37,7 +41,7 @@ public abstract class ObserverComponent extends JComponent implements IObserver 
         if (provider != null) {
             this.addMouseListener(new MouseAdapter() {
                 @Override
-                public void mouseClicked(MouseEvent e) {
+                public void mouseClicked(MouseEvent e) {//ОТСЛЕЖИВАНИЕ НАЖАТИЯ МАУС ИВЕНТ
                     super.mouseClicked(e);
                     provider.notify(getControlRole());
                 }

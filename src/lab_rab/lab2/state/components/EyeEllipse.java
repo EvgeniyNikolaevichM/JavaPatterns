@@ -41,12 +41,12 @@ public class EyeEllipse extends ObserverComponent {
         g2.setPaint(myColor);
         int x = halfWidth() - offset;
         int y = halfHeight() - offset;
-
+//Здесь в зависимости от состояния менется 1,2 или 3
         if (state == 0){
             g2.setStroke(new BasicStroke(3f));
             g2.drawLine(x, halfHeight(), halfWidth() + offset, halfHeight());
             g2.setColor(Color.BLACK);
-            g2.drawString("Z Z Z Z Z Z Z Z", x, y);
+            g2.drawString(":(", x, y);
         } else if (state == 1) {
             g2.setStroke(new BasicStroke(1f));
             g2.fill(new Ellipse2D.Double(x, y, 30, 30));

@@ -420,42 +420,35 @@ public class Main {
         Car mem = car5.setMemento();
         Vehicles.printVehicle(mem);//Вывод после восстановления*/
 
+        //Strategy
 
-        //Analyzer analyzer = new Analyzer();
-        //analyzer.setStrategy(new Sax(args[0], args[1]));
-        //analyzer.documentParse();
-        //analyzer.setStrategy(new Dom(args[0], args[1]));
-        //analyzer.documentParse();
+/*        Analyzer analyzer = new Analyzer();
+//        analyzer.setStrategy(new Sax(args[0], args[1]));
+//        analyzer.documentParse();
+        analyzer.setStrategy(new Sax(args[0], args[1]));
+        analyzer.documentParse();*/
 
+        //Visitor
 
-        /* Visitor visitor = new PrintVisitor();
+/*
+        Visitor visitor = new PrintVisitor();
         Motorcycle moto  = new Motorcycle("Moto",2);
         Car car = new Car("Car",3);
         moto.accept(visitor);
-        car.accept(visitor); */
+        car.accept(visitor);
+*/
 
-        /* IVehicle car = new Car("Car", 3);
-        Vehicles.printVehicle(car);
-        DataTypeGetting file = new Text();
-        file.set(car);
-        car.addModel("New Model", 100);
-        file.get();
+        //DAO
+
+        //Создать 2 файла. Первый файл хранит инфу в текстовом виде, название марки, колическтво моделей, а второй в виде сериализованного объекта
+        //Паттерн обеспечивает чтение из файлов
+/*        IVehicle Car = new Car("Car", 3);
+        Vehicles.printVehicle(car);//Создали и вывели машину
+        DataTypeGetting file = new Serialize();//Здесь устанавливаем Serialize либо Text
+        file.write(car);//Записали машину
+        car.addModel("New Model", 100);//Изменили машину
+        file.read();//Вывели машину
         file.print();
-        Vehicles.printVehicle(car); */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Vehicles.printVehicle(car);*/
     }
 }

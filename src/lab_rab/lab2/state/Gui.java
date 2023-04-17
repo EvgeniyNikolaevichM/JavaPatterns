@@ -4,6 +4,8 @@ import lab_rab.lab2.state.components.SmileyPanel;
 
 import javax.swing.*;
 
+//Паттерн позвояет в зависимости от состояния менять свое поведение
+
 public class Gui extends JFrame {
     SmileyPanel smileyPanel;
     public JButton btnWeekends = new JButton("Weekends");

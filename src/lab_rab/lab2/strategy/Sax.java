@@ -9,6 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+//Sax читает документ частями
+
 public class Sax implements Strategy {
 
     public Student student = new Student();
@@ -20,7 +22,7 @@ public class Sax implements Strategy {
         inputXml = args0;
         resultXml = args1;
     }
-
+//Здесь мы соответственно получили документ:
     private void initSax()  throws ParserConfigurationException, SAXException, IOException, XMLStreamException  {
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         SAXParser saxParser = saxParserFactory.newSAXParser();
@@ -28,7 +30,7 @@ public class Sax implements Strategy {
         correctMark();
     }
 
-
+//Изначально ничего нет-пусто:
     DefaultHandler defaultHandler = new DefaultHandler() {
 
         String lastname = "";
@@ -38,20 +40,20 @@ public class Sax implements Strategy {
         double sum = 0;
         String avrg = "";
         String elem = "";
-
+//Начинаем работать
         @Override
         public void startDocument() throws SAXException {
             super.startDocument();
         }
-
+//Получаем среднюю оценку
         @Override
         public void endDocument() throws SAXException {
             student.setLastName(lastname);
-            if ((sum / countMarks) != Double.parseDouble(avrg)) {
-                student.setAverageMark(sum / countMarks);
-            } else student.setAverageMark(Double.parseDouble(avrg));
+            if ((sum / countMarks) != Double.parseDouble(avrg)) {//Если оценка не равна той, которая получилась из документа,
+                student.setAverageMark(sum / countMarks);//то студенту выставляем оценку полученную в результате вычислений,
+            } else student.setAverageMark(Double.parseDouble(avrg));//иначе ту, которая была
         }
-
+        //Задаем какие элементы надо найти, с кем будем проводить какие-либо манипуляуии осуществлять
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
             elem = qName;
@@ -65,7 +67,7 @@ public class Sax implements Strategy {
 
             if (title != null) {
                 student.addSubject(title, Integer.parseInt(mark));
-                sum += Double.parseDouble(mark);
+                sum += Double.parseDouble(mark);//Читаем оценки
                 countMarks++;
             }
         }
@@ -74,6 +76,8 @@ public class Sax implements Strategy {
         public void endElement(String uri, String localName, String qName) throws SAXException {
             elem = "";
         }
+
+        //Проверка является ли правильным результат:
 
         @Override
         public void characters(char[] ch, int start, int length) throws SAXException {
@@ -105,7 +109,7 @@ public class Sax implements Strategy {
             }
 
             xsw.writeStartElement("average");
-            xsw.writeCharacters(String.valueOf(student.getAverageMark()));
+            xsw.writeCharacters(String.valueOf(student.getAverageMark()));//Перезаписываем среднюю оценку
             xsw.writeEndElement();
 
             xsw.writeEndElement();
@@ -116,7 +120,7 @@ public class Sax implements Strategy {
         }
     }
 
-
+//Дефолтный обработчик событий:
     public DefaultHandler getDefaultHandler() {
         return defaultHandler;
     }

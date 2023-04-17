@@ -1,7 +1,8 @@
 package lab_rab.lab2;
 
 import lab_rab.lab2.interfaces.Visitor;
-
+//Здесь переопределен визитор в строчку и столбик
+//Здесь реализация интерфейса Visitor
 public class PrintVisitor implements Visitor {
     @Override
     public void visit(Car car) {

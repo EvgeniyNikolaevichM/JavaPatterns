@@ -31,8 +31,8 @@ public class MainPanel extends JPanel {
         this.add(controlPanel, BorderLayout.PAGE_END);
         start();
     }
-
-    private void start() {
+//Трэды:
+    private void start() {//(Каждый запускается в отдельном потоке)
         Thread t = new Thread(() -> {
             while (true) {
                 update();

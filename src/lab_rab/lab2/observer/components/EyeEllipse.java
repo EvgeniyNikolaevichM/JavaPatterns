@@ -14,6 +14,9 @@ public class EyeEllipse extends ObserverComponent {
         this.isOpen = true;
     }
 
+
+    //Параметры, которые определяют открыт глаз или нет:
+    //Здесь также работа с файлом ObserverComponent, update меняет true на false
     @Override
     void onUpdate() {
         this.isOpen = !this.isOpen;
@@ -42,10 +45,12 @@ public class EyeEllipse extends ObserverComponent {
         int x = halfWidth() - offset;
         int y = halfHeight() - offset;
 
-        if (isOpen) {
+        //В зависимости от того открыт глаз или геь, то рисуем либо овал , либо линию:
+
+        if (isOpen) {//Если открыт, то рисуем овал:
             g2.setStroke(new BasicStroke(1f));
             g2.fill(new Ellipse2D.Double(x, y, 30, 30));
-        } else {
+        } else {//Если закрыт, то линию:
             g2.setStroke(new BasicStroke(3f));
             g2.drawLine(x, halfHeight(), halfWidth() + offset, halfHeight());
         }

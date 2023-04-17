@@ -14,7 +14,7 @@
 
         <!ELEMENT average (#PCDATA)>]>
 
-<student lastname="Slava">
+<student lastname="Evgeniy">
     <subject title="Math" mark="5"/>
     <subject title="Program" mark="5"/>
     <subject title="English" mark="5"/>

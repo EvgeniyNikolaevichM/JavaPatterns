@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+//Символьный класс
+
 public class Text implements DataTypeGetting {
     private IVehicle vehicle;
     private String mark;
@@ -15,7 +17,7 @@ public class Text implements DataTypeGetting {
     private String[] models ;
 
     @Override
-    public void set(IVehicle vehicle) {
+    public void write(IVehicle vehicle) {
         this.vehicle = vehicle;
         try {
             FileWriter writer = new FileWriter("text.txt");
@@ -32,7 +34,7 @@ public class Text implements DataTypeGetting {
         }
     }
     @Override
-    public void get() throws IOException {
+    public void read() throws IOException {
         try{
             FileReader fileReader = new FileReader("text.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);

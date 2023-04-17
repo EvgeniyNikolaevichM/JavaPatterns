@@ -321,7 +321,7 @@ public class Car implements IVehicle, Serializable, Cloneable{
     }
 
 
-    public void accept(Visitor visitor) throws NoSuchModelNameException {
+    public void accept(Visitor visitor) throws NoSuchModelNameException {//Разрешение ... предыдущего визитора
         visitor.visit(this);
     }
 

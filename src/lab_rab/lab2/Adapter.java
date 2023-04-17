@@ -8,8 +8,8 @@ public class Adapter {//принимает в качестве параметр�
         try {
             for (String str : strings) {
                 str += " ";
-                byte[] buffer = str.getBytes();
-                outputStream.write(buffer);
+                byte[] buffer = str.getBytes();//
+                outputStream.write(buffer);//Перевод строки в байты
             }
         } catch (IOException e) {
             throw new IOException(e);

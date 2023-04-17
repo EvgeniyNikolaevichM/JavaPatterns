@@ -29,6 +29,9 @@ public class SmileyPanel extends JPanel implements IObservable {
         this.addAndSubscribe(mouth);
     }
 
+    //Метод, который меняет состояние в зависимотсти от кнопок, которые нажаты, состояние задается в
+    //компанентах
+
     public void setState(int i){
         leftEye.setState(i);
         rightEye.setState(i);

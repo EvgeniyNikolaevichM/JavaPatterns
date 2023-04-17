@@ -4,6 +4,9 @@ import lab_rab.lab2.observer.components.SmileyPanel;
 
 import javax.swing.*;
 
+//Паттерн, смотрит за состоянием объектов и реагирует, паттерн, когда нам нужно подписываться на какие-то события
+//Когда событие происходит все подписчики "видят" наблюдатель, в соответствии с этим они могут менять состояние,
+//когда событие произошло
 public class Gui extends JFrame {
     SmileyPanel smileyPanel;
 

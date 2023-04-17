@@ -2,6 +2,13 @@ package lab_rab.lab2.templateMethod;
 
 import java.awt.*;
 
+//Шаблонный паттерн, который определяет основной алгоритм и позволяет классам переопределить некоторые шаги алгоритма
+//не изменяя ее структуру
+//Общее описание всех компанентов (фигур и движение и графика)
+
+//Данный файл - шаблонный метод
+    //Общее - сама логика отрисовки, как он ходит(Алгоритм движения +- одинаковый) ниже методы move и draw
+    //Разное - это отрисовка фигур
 abstract class BouncingShape {
     int vX = 1;
     int vY = 1;
@@ -31,6 +38,8 @@ abstract class BouncingShape {
     abstract void paintShape(Graphics2D g);
     abstract void rotate(boolean bounced);
 
+    //1й шаблонный метод-отрисовка
+//Здесь структура алгоритма, а как будет происходить-ответственность на классах
     void draw(Graphics g) {
         g.setColor(color);
         paintShape((Graphics2D) g.create());
@@ -62,6 +71,8 @@ abstract class BouncingShape {
         return bounced;
     }
 
+    //2й шаблонный метод-перемещение
+//Здесь структура алгоритма, а как будет происходить-ответственность на классах
     void move() {
         shiftByDelta();
         rotate(checkBounce());

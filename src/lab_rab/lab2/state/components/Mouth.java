@@ -21,7 +21,7 @@ public class Mouth extends ObserverComponent {
 
         g2.setPaint(new Color(205, 55, 55));
         g2.setStroke(stroke);
-
+//Здесь в зависимости от состояния менется 1,2 или 3
         if (state == 0){
             g2.drawLine(0, 0, width, 0);
         } else if (state == 1) {

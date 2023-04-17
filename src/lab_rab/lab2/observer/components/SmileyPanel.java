@@ -9,6 +9,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+//Реализация наблюдателя
+
 public class SmileyPanel extends JPanel implements IObservable {
     private List<IObserver> listeners;
     EyeEllipse leftEye;
@@ -16,6 +18,7 @@ public class SmileyPanel extends JPanel implements IObservable {
     NoseTriangle nose;
     Mouth mouth;
 
+//Начать здесь, 4 наблюдателя, ниже их компоненты:
     public SmileyPanel() {
         listeners = new ArrayList<>();
         leftEye = new EyeEllipse(150, 100, 75, 75, ControlRole.LEFT_EYE);
@@ -33,7 +36,7 @@ public class SmileyPanel extends JPanel implements IObservable {
         this.add(component);
         this.addObserver(component);
     }
-
+// тут вроде подписки-добавление в список подписчиков(листнерс) наблюдателя
     @Override
     public void addObserver(IObserver observer) {
         if (observer != null) {
@@ -41,6 +44,7 @@ public class SmileyPanel extends JPanel implements IObservable {
             observer.subscribe(this);
         }
     }
+//Уведомление подписчиков
 
     @Override
     public void notify(ControlRole role) {

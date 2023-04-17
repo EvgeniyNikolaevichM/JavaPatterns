@@ -4,11 +4,13 @@ import lab_rab.lab2.interfaces.IVehicle;
 
 import java.io.*;
 
+//Байтовый класс
+
 public class Serialize implements DataTypeGetting {
     private IVehicle vehicle;
     public Serialize() {}
     @Override
-    public void set(IVehicle vehicle){
+    public void write(IVehicle vehicle){
         try {
             this.vehicle = vehicle;
             FileOutputStream fileOutputStream = new FileOutputStream ("serialize.txt");
@@ -21,7 +23,7 @@ public class Serialize implements DataTypeGetting {
         }
     }
     @Override
-    public void get() throws IOException {
+    public void read() throws IOException {
         try {
             FileInputStream fileInputStream = new FileInputStream("serialize.txt");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
